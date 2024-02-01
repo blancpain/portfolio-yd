@@ -1,16 +1,16 @@
-"use client";
-import Link from "next/link";
-import React from "react";
-import Logo from "./Logo";
-import { GitHubIcon, LinkedInIcon } from "./Icons";
-import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import ThemeSwitch from "./ThemeSwitch";
+'use client';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import Logo from './Logo';
+import { GitHubIcon, LinkedInIcon } from './Icons';
+import { usePathname, useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import ThemeSwitch from './ThemeSwitch';
 
 const CustomLink = ({
   href,
   title,
-  className = "",
+  className = '',
 }: {
   href: string;
   title: string;
@@ -19,11 +19,13 @@ const CustomLink = ({
   const currentPathName = usePathname();
 
   return (
-    <Link href={href} className={`${className} relative group`}>
+    <Link href={href} className={`${className} group relative`}>
       {title}
       <span
-        className={`h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5
-        group-hover:w-full transition-[width] ease duration-300 dark:bg-light ${currentPathName === href ? "w-full" : "w-0"}`}
+        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-dark transition-[width]
+        duration-300 group-hover:w-full dark:bg-light ${
+          currentPathName === href ? 'w-full' : 'w-0'
+        }`}
       >
         &nbsp;
       </span>
@@ -31,48 +33,181 @@ const CustomLink = ({
   );
 };
 
-const NavBar = () => {
-  return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light">
-      <nav>
-        <CustomLink href="/" title="Home" className="mr-4" />
-        <CustomLink href="/about" title="About" className="mx-4" />
-        <CustomLink href="/projects" title="Projects" className="ml-4" />
-      </nav>
-      <nav className="flex items-center justify-center flex-wrap">
-        <motion.a
-          href="https://github.com"
-          target="_blank"
-          whileHover={{
-            y: -2,
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
-          className="w-6 mx-3"
-        >
-          <GitHubIcon />
-        </motion.a>
-        <motion.a
-          href="https://linkedin.com"
-          target="_blank"
-          whileHover={{
-            y: -2,
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
-          className="w-6 ml-3"
-        >
-          <LinkedInIcon />
-        </motion.a>
+const CustomMobileLink = ({
+  href,
+  title,
+  className = '',
+  toggle,
+}: {
+  href: string;
+  title: string;
+  className?: string;
+  toggle: () => void;
+}) => {
+  const currentPathName = usePathname();
+  const router = useRouter();
 
-        <button
-          className={`ml-3 flex items-center justify-center rounded-full p-1`}
+  const handleClick = () => {
+    toggle();
+    router.push(href);
+  };
+
+  return (
+    <button
+      className={`${className} group relative text-light dark:text-dark my-2`}
+      onClick={handleClick}
+    >
+      {title}
+      <span
+        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-light
+        transition-[width] duration-300 group-hover:w-full dark:bg-dark ${
+          currentPathName === href ? 'w-full' : 'w-0'
+        }`}
+      >
+        &nbsp;
+      </span>
+    </button>
+  );
+};
+const NavBar = () => {
+  const [isHamBurgerOpen, setIsHamBurgerOpen] = useState(false);
+
+  const handleHamBurgerClick = () => {
+    setIsHamBurgerOpen(!isHamBurgerOpen);
+  };
+  return (
+    <header
+      className="relative flex w-full items-center justify-between px-32 py-8 font-medium
+        dark:text-light z-10 lg:px-16 md:px-12 sm:!px-8"
+    >
+      <button
+        className="hidden items-center justify-center lg:flex lg:flex-col pt-2"
+        onClick={handleHamBurgerClick}
+      >
+        <span
+          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
+          dark:bg-light ${
+            isHamBurgerOpen ? 'translate-y-1 rotate-45' : '-translate-y-0.5'
+          }`}
+        ></span>
+        <span
+          className={`my-0.5 block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
+          dark:bg-light ${isHamBurgerOpen ? 'opacity-0' : 'opacity-100'}`}
+        ></span>
+        <span
+          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
+          dark:bg-light ${
+            isHamBurgerOpen ? '-translate-y-1 -rotate-45' : 'translate-y-0.5'
+          }`}
+        ></span>
+      </button>
+
+      <div className="flex w-full items-center justify-between lg:hidden">
+        <nav>
+          <CustomLink href="/" title="Home" className="mr-4" />
+          <CustomLink href="/about" title="About" className="mx-4" />
+          <CustomLink href="/projects" title="Projects" className="ml-4" />
+        </nav>
+        <nav className="flex flex-wrap items-center justify-center">
+          <motion.a
+            href="https://github.com"
+            target="_blank"
+            whileHover={{
+              y: -2,
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+            className="mr-3 w-6"
+          >
+            <GitHubIcon />
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com"
+            target="_blank"
+            whileHover={{
+              y: -2,
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+            className="w-6"
+          >
+            <LinkedInIcon />
+          </motion.a>
+
+          <button
+            className={'ml-2 flex items-center justify-center rounded-full p-1'}
+          >
+            <ThemeSwitch />
+          </button>
+        </nav>
+      </div>
+
+      {/* TODO: menu should close when clicked outside and it shuold disappear on resize where the hamburger is not visible */}
+      {isHamBurgerOpen ? (
+        <motion.div
+          className="fixed left-1/2 top-1/2 z-30 flex min-w-[70vw] -translate-x-1/2 -translate-y-1/2
+            flex-col items-center justify-between rounded-lg bg-dark/90 py-32
+            backdrop-blur-md dark:bg-light/75 large:hidden"
+          initial={{ scale: 0, opacity: 0, x: '-50', y: '-50' }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.3 }}
         >
-          <ThemeSwitch />
-        </button>
-      </nav>
+          <nav className="flex items-center flex-col justify-center">
+            <CustomMobileLink
+              href="/"
+              title="Home"
+              toggle={handleHamBurgerClick}
+            />
+            <CustomMobileLink
+              href="/about"
+              title="About"
+              toggle={handleHamBurgerClick}
+            />
+            <CustomMobileLink
+              href="/projects"
+              title="Projects"
+              toggle={handleHamBurgerClick}
+            />
+          </nav>
+          <nav className="flex flex-wrap items-center justify-around mt-3 w-1/2">
+            <motion.a
+              href="https://github.com"
+              target="_blank"
+              whileHover={{
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              className="mr-3 w-6 sm:mx-1 bg-light rounded-full dark:bg-dark"
+            >
+              <GitHubIcon />
+            </motion.a>
+            <motion.a
+              href="https://linkedin.com"
+              target="_blank"
+              whileHover={{
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              className="w-6 sm:mx-1"
+            >
+              <LinkedInIcon />
+            </motion.a>
+
+            <button
+              className={`ml-2 flex items-center justify-center rounded-full p-1 text-light dark:text-dark
+                sm:mx-1`}
+            >
+              <ThemeSwitch />
+            </button>
+          </nav>
+        </motion.div>
+      ) : null}
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />
       </div>

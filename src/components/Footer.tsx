@@ -1,14 +1,17 @@
-import React from "react";
-import Layout from "./Layout";
-import Link from "next/link";
+import React from 'react';
+import Layout from './Layout';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t-2 border-solid border-dark font-medium text-lg dark:text-light dark:border-light">
-      <Layout className="py-8 flex items-center justify-between">
+    <footer
+      className="w-full border-t-2 border-solid border-dark font-medium text-lg dark:text-light
+        dark:border-light sm:text-base"
+    >
+      <Layout className="py-4 flex items-center justify-between lg:flex-col">
         <span>{new Date().getFullYear()} &copy; All Rights Reserved</span>
         <div className="flex items-center">
-          Built with{" "}
+          Built with{' '}
           <span className="text-primary text-2xl px-1 dark:text-primaryDark">
             &#9825;
           </span>
