@@ -5,6 +5,7 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Providers } from './prodiders';
 import PageAnimatePresence from '@/components/PageAnimatePresence';
+import { ScrollToHashElement } from '@/components/ScrollToHashElement';
 
 const monserrat = Montserrat({
   subsets: ['latin'],
@@ -22,11 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="8xl:flex 8xl:flex-col 8xl:items-center 8xl:!p-0 8xl:!m-0"
+    >
       <body
-        className={`${monserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen`}
+        className={`${monserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen
+        max-w-[3072px]`}
       >
         <Providers>
+          <ScrollToHashElement />
           <NavBar />
           <PageAnimatePresence>{children}</PageAnimatePresence>
           <Footer />
