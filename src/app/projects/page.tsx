@@ -11,7 +11,6 @@ import watchCo from '../../../public/images/projects/watchCo.gif';
 import spaceVue from '../../../public/images/projects/spaceVue.gif';
 import battleShip from '../../../public/images/projects/battleship.gif';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 
 const FramerImage = motion(Image);
 
@@ -158,8 +157,6 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
 };
 
 const Projects = () => {
-  const path = usePathname();
-  const { hash } = usePathname();
   return (
     <>
       <Head>
