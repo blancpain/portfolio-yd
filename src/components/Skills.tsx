@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
@@ -19,7 +20,15 @@ const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
 };
 
 const Skills = () => {
-  const isScreenLarge = window.innerWidth > 3072;
+  // NOTE: workaround as window object not available initially, needs to be wrapped in useEffect
+  const [isScreenLarge, setIsScreenLarge] = useState<boolean>(false);
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const screenSize = window.innerWidth > 3072;
+      setIsScreenLarge(screenSize);
+    };
+    checkScreenSize();
+  }, []);
 
   return (
     <>
