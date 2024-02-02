@@ -11,15 +11,21 @@ const CustomLink = ({
   href,
   title,
   className = '',
+  ariaLabel,
 }: {
   href: string;
   title: string;
   className?: string;
+  ariaLabel?: string;
 }) => {
   const currentPathName = usePathname();
 
   return (
-    <Link href={href} className={`${className} group relative`}>
+    <Link
+      href={href}
+      className={`${className} group relative`}
+      aria-label={ariaLabel}
+    >
       {title}
       <span
         className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-dark transition-[width]
@@ -37,11 +43,13 @@ const CustomMobileLink = ({
   href,
   title,
   className = '',
+  ariaLabel,
   toggle,
 }: {
   href: string;
   title: string;
   className?: string;
+  ariaLabel?: string;
   toggle: () => void;
 }) => {
   const currentPathName = usePathname();
@@ -56,6 +64,7 @@ const CustomMobileLink = ({
     <button
       className={`${className} group relative text-light dark:text-dark my-2`}
       onClick={handleClick}
+      aria-label={ariaLabel}
     >
       {title}
       <span
@@ -102,6 +111,7 @@ const NavBar = () => {
       <button
         className="hidden items-center justify-center lg:flex lg:flex-col pt-2"
         onClick={toggleHamburgerMenu}
+        aria-label="Toggle menu"
       >
         <span
           className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
@@ -123,13 +133,29 @@ const NavBar = () => {
 
       <div className="flex w-full items-center justify-between lg:hidden">
         <nav>
-          <CustomLink href="/" title="Home" className="mr-4" />
-          <CustomLink href="/about" title="About" className="mx-4" />
-          <CustomLink href="/projects" title="Projects" className="ml-4" />
+          <CustomLink
+            href="/"
+            title="Home"
+            className="mr-4"
+            ariaLabel="Home page"
+          />
+          <CustomLink
+            href="/about"
+            title="About"
+            className="mx-4"
+            ariaLabel="About page"
+          />
+          <CustomLink
+            href="/projects"
+            title="Projects"
+            className="ml-4"
+            ariaLabel="Projects page"
+          />
         </nav>
         <nav className="flex flex-wrap items-center justify-center">
           <motion.a
             href="https://github.com"
+            aria-label="GitHub profile"
             target="_blank"
             whileHover={{
               y: -2,
@@ -143,6 +169,7 @@ const NavBar = () => {
           </motion.a>
           <motion.a
             href="https://linkedin.com"
+            aria-label="LinkedIn profile"
             target="_blank"
             whileHover={{
               y: -2,
@@ -157,6 +184,7 @@ const NavBar = () => {
 
           <button
             className={'ml-2 flex items-center justify-center rounded-full p-1'}
+            aria-label="Toggle theme switch"
           >
             <ThemeSwitch />
           </button>
@@ -178,21 +206,25 @@ const NavBar = () => {
               href="/"
               title="Home"
               toggle={toggleHamburgerMenu}
+              ariaLabel="Home page"
             />
             <CustomMobileLink
               href="/about"
               title="About"
               toggle={toggleHamburgerMenu}
+              ariaLabel="About page"
             />
             <CustomMobileLink
               href="/projects"
               title="Projects"
               toggle={toggleHamburgerMenu}
+              ariaLabel="Projects page"
             />
           </nav>
           <nav className="flex flex-wrap items-center justify-around mt-3 w-1/2">
             <motion.a
               href="https://github.com/blancpain"
+              aria-label="GitHub profile"
               target="_blank"
               whileHover={{
                 y: -2,
@@ -206,6 +238,7 @@ const NavBar = () => {
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/yasdim/"
+              aria-label="LinkedIn profile"
               target="_blank"
               whileHover={{
                 y: -2,
@@ -221,6 +254,7 @@ const NavBar = () => {
             <button
               className={`ml-2 flex items-center justify-center rounded-full p-1 text-light dark:text-dark
                 sm:mx-1`}
+              aria-label="Toggle theme switch"
             >
               <ThemeSwitch />
             </button>
