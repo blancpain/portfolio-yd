@@ -23,8 +23,7 @@ const config: Config = {
         '2xl': { max: '1535px' },
         xl: { max: '1279px' },
         lg: { max: '1023px' },
-        // TODO: not sure about below...
-        large: { min: '1023px' },
+        large: { min: '1023px' }, // custom min for hamburger menu
         md: { max: '767px' },
         sm: { max: '639px' },
         xs: { max: '479px' },
