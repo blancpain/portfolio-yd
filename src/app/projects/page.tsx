@@ -58,6 +58,7 @@ const FeaturedProject = ({
         href={link}
         target="_blank"
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
+        aria-label="View project"
       >
         <FramerImage
           src={img}
@@ -76,7 +77,12 @@ const FeaturedProject = ({
         <span className="text-primary font-medium text-xl dark:text-primaryDark xs:text-base">
           {type}
         </span>
-        <Link href={link} target="_blank" className="hover:underline-offset-2">
+        <Link
+          href={link}
+          target="_blank"
+          className="hover:underline-offset-2"
+          aria-label="View project"
+        >
           <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm">
             {title}
           </h2>
@@ -86,12 +92,18 @@ const FeaturedProject = ({
           {summary}
         </p>
         <div className="mt-2 flex items-center">
-          <Link href={gitHubLink} target="_blank" className="w-10">
+          <Link
+            href={gitHubLink}
+            target="_blank"
+            className="w-10"
+            aria-label="Github"
+          >
             <GitHubIcon />
           </Link>
           <Link
             href={link}
             target="_blank"
+            aria-label="View project"
             className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light
               dark:text-dark sm:px-4 sm:text-base"
           >
@@ -118,6 +130,7 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
       <Link
         href={link}
         target="_blank"
+        aria-label="View project"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
@@ -133,7 +146,12 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
         <span className="text-primary font-medium text-xl dark:text-primaryDark lg:text-lg md:text-base">
           {type}
         </span>
-        <Link href={link} target="_blank" className="hover:underline-offset-2">
+        <Link
+          href={link}
+          target="_blank"
+          className="hover:underline-offset-2"
+          aria-label="View project"
+        >
           <h2 className="my-2 w-full text-left text-3xl font-bold lg:text-2xl">
             {title}
           </h2>
@@ -144,10 +162,16 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
             href={link}
             target="_blank"
             className="text-lg font-semibold underline md:text-base"
+            aria-label="View project"
           >
             View
           </Link>
-          <Link href={gitHubLink} target="_blank" className="w-8 md:w-6">
+          <Link
+            href={gitHubLink}
+            target="_blank"
+            className="w-8 md:w-6"
+            aria-label="GitHub"
+          >
             <GitHubIcon />
           </Link>
         </div>
