@@ -173,7 +173,7 @@ const NavBar = () => {
           </nav>
           <nav className="flex flex-wrap items-center justify-around mt-3 w-1/2">
             <motion.a
-              href="https://github.com"
+              href="https://github.com/blancpain"
               target="_blank"
               whileHover={{
                 y: -2,
@@ -186,7 +186,7 @@ const NavBar = () => {
               <GitHubIcon />
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/yasdim/"
               target="_blank"
               whileHover={{
                 y: -2,

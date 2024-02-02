@@ -7,11 +7,16 @@ import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { GitHubIcon } from '@/components/Icons';
 import mangify from '../../../public/images/projects/mangify.gif';
+import watchCo from '../../../public/images/projects/watchCo.gif';
+import spaceVue from '../../../public/images/projects/spaceVue.gif';
+import battleShip from '../../../public/images/projects/battleship.gif';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const FramerImage = motion(Image);
 
 type FeaturedProjectProps = {
+  id: string;
   type: string;
   title: string;
   summary: string;
@@ -21,6 +26,7 @@ type FeaturedProjectProps = {
 };
 
 type ProjectProps = {
+  id: string;
   type: string;
   title: string;
   img: StaticImageData;
@@ -35,9 +41,11 @@ const FeaturedProject = ({
   img,
   link,
   gitHubLink,
+  id,
 }: FeaturedProjectProps) => {
   return (
     <article
+      id={id}
       className="w-full flex items-center justify-between rounded-3xl border border-solid
         border-dark bg-light shadow-2xl p-12 relative rounded-br-2xl dark:bg-dark
         dark:border-light lg:flex-col lg:px-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4"
@@ -96,9 +104,10 @@ const FeaturedProject = ({
   );
 };
 
-const Project = ({ title, type, img, link, gitHubLink }: ProjectProps) => {
+const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
   return (
     <article
+      id={id}
       className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid
         border-dark bg-light p-6 relative dark:bg-dark dark:border-light xs:p-4"
     >
@@ -149,18 +158,20 @@ const Project = ({ title, type, img, link, gitHubLink }: ProjectProps) => {
 };
 
 const Projects = () => {
+  const path = usePathname();
+  const { hash } = usePathname();
   return (
     <>
       <Head>
         <title>Yasen | Projects Page</title>
-        <meta name="description" content="about page" />
+        <meta name="description" content="projects page" />
       </Head>
 
       <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text="Imagination Trumps Knowledge!"
-            className="mb-16 lg:!text-7xl sm:mb-8 sm:!tex-6xl xs:!text-4xl"
+            text="Check out some of my work!"
+            className="mb-16 !text-7xl xl:!text-6xl lg:!text-6xl sm:mb-8 sm:!tex-6xl xs:!text-4xl"
           />
 
           <div
@@ -169,9 +180,10 @@ const Projects = () => {
           >
             <div className="col-span-12">
               <FeaturedProject
+                id="mangify"
                 title="mangify"
                 type="Featured Project"
-                summary="Meal planning made easy. Search for recipes, add them to your meal plan, and generate a shopping list."
+                summary="A full-stack meal planning app written in TypeScript, implemented with React, Node, Express, and PostgreSQL."
                 link="https://mangify.org/"
                 gitHubLink="https://github.com/blancpain/mangify"
                 img={mangify}
@@ -179,48 +191,33 @@ const Projects = () => {
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
-                title="mangify"
-                type="Featured Project"
-                link="https://mangify.org/"
-                gitHubLink="https://github.com/blancpain/mangify"
-                img={mangify}
+                id="watchCo"
+                title="watchCo"
+                type="Project"
+                link="https://blancpain.github.io/shopping-cart/"
+                gitHubLink="https://github.com/blancpain/shopping-cart"
+                img={watchCo}
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
-                title="mangify"
-                type="Featured Project"
-                link="https://mangify.org/"
-                gitHubLink="https://github.com/blancpain/mangify"
-                img={mangify}
+                id="battleship"
+                title="battleship"
+                type="Project"
+                link="https://blancpain.github.io/battleship/"
+                gitHubLink="https://github.com/blancpain/battleship"
+                img={battleShip}
               />
             </div>
             <div className="col-span-12">
               <FeaturedProject
-                title="mangify"
+                id="spaceVue"
+                title="spaceVue"
                 type="Featured Project"
-                summary="Meal planning made easy. Search for recipes, add them to your meal plan, and generate a shopping list."
-                link="https://mangify.org/"
-                gitHubLink="https://github.com/blancpain/mangify"
-                img={mangify}
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                title="mangify"
-                type="Featured Project"
-                link="https://mangify.org/"
-                gitHubLink="https://github.com/blancpain/mangify"
-                img={mangify}
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                title="mangify"
-                type="Featured Project"
-                link="https://mangify.org/"
-                gitHubLink="https://github.com/blancpain/mangify"
-                img={mangify}
+                summary="An interactive visualization of the solar system written in TypeScript and implemented with Vue, Firebase and NASA APIs."
+                link="https://blancpain.github.io/space-vue/#/"
+                gitHubLink="https://github.com/blancpain/space-vue"
+                img={spaceVue}
               />
             </div>
           </div>

@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer
       className="w-full border-t-2 border-solid border-dark font-medium text-lg dark:text-light
-        dark:border-light sm:text-base"
+        dark:border-light sm:text-base py-6 xl:py-0 xs:py-2"
     >
-      <Layout className="py-4 flex items-center justify-between lg:flex-col">
+      <Layout className="py-4 flex items-center justify-between lg:flex-col lg:gap-4">
         <span>{new Date().getFullYear()} &copy; All Rights Reserved</span>
         <div className="flex items-center">
           Built with{' '}
@@ -20,7 +20,7 @@ const Footer = () => {
             href="https://github.com/blancpain"
             className="underline underline-offset-2"
           >
-            Yasen
+            Yasen Dimitrov
           </Link>
         </div>
         <Link

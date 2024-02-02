@@ -19,17 +19,20 @@ const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
 };
 
 const Skills = () => {
+  const isScreenLarge = window.innerWidth > 3072;
+
   return (
     <>
-      <h2 className="font-bold text-8xl mt-64 w-full text-center md:text-6xl md:mt-32">
+      <h2 className="font-bold text-8xl mt-32 w-full text-center md:text-6xl">
         Skills
       </h2>
       <div
-        className="w-full h-screen relative flex items-center justify-center rounded-full
+        className="w-full h-screen mt-72 relative flex items-center justify-center rounded-full
           bg-circularLight dark:bg-circularDark lg:h-[80vh] md:h-[70vh] sm:h-[60vh]
-          xs:h-[50vh] lg:bg-circularLightLg lg:dark:bg-circularDarkLg
-          md:!bg-circularLightMd md:dark:!bg-circularDarkMd sm:!bg-circularLightSm
-          sm:dark:!bg-circularDarkSm"
+          xs:h-[50vh] xl:bg-circularLightXl xl:dark:bg-circularDarkXl
+          lg:bg-circularLightLg lg:dark:bg-circularDarkLg md:!bg-circularLightMd
+          md:dark:!bg-circularDarkMd sm:!bg-circularLightSm sm:dark:!bg-circularDarkSm
+          !max-w-[2500px] md:mt-24"
       >
         <motion.div
           className="flex cursor-pointer items-center justify-center rounded-full font-semibold
@@ -39,18 +42,71 @@ const Skills = () => {
         >
           Web
         </motion.div>
-
-        <Skill name="HTML" x="-25vw" y="2vw" />
-        <Skill name="CSS" x="-5vw" y="-10vw" />
-        <Skill name="JavaScript" x="20vw" y="6vw" />
-        <Skill name="ReactJS" x="0vw" y="12vw" />
-        <Skill name="VueJS" x="-20vw" y="-15vw" />
-        <Skill name="NextJS" x="15vw" y="-12vw" />
-        <Skill name="Tailwind CSS" x="32vw" y="-5vw" />
-        <Skill name="Node.js" x="0vw" y="-20vw" />
-        <Skill name="PostgreSQL" x="-25vw" y="18vw" />
-        <Skill name="Docker" x="18vw" y="18vw" />
-        {/* TODO: Add more skills   */}
+        <Skill
+          name="HTML"
+          x={isScreenLarge ? '-20vw' : '-25vw'}
+          y={isScreenLarge ? '1vw' : '2vw'}
+        />
+        <Skill
+          name="CSS"
+          x={isScreenLarge ? '-2.5vw' : '-5vw'}
+          y={isScreenLarge ? '-5vw' : '-10vw'}
+        />
+        <Skill
+          name="JavaScript"
+          x={isScreenLarge ? '10vw' : '20vw'}
+          y={isScreenLarge ? '3vw' : '6vw'}
+        />
+        <Skill
+          name="React"
+          x={isScreenLarge ? '-5vw' : '0vw'}
+          y={isScreenLarge ? '8vw' : '12vw'}
+        />
+        <Skill
+          name="Vue"
+          x={isScreenLarge ? '-15vw' : '-20vw'}
+          y={isScreenLarge ? '-10vw' : '-15vw'}
+        />
+        <Skill
+          name="Next.js"
+          x={isScreenLarge ? '7.5vw' : '15vw'}
+          y={isScreenLarge ? '-6vw' : '-12vw'}
+        />
+        <Skill
+          name="Tailwind CSS"
+          x={isScreenLarge ? '15vw' : '29vw'}
+          y={isScreenLarge ? '-2.5vw' : '-5vw'}
+        />
+        <Skill
+          name="Node.js"
+          x={isScreenLarge ? '-2.5vw' : '0vw'}
+          y={isScreenLarge ? '-15vw' : '-20vw'}
+        />
+        <Skill
+          name="PostgreSQL"
+          x={isScreenLarge ? '-20vw' : '-25vw'}
+          y={isScreenLarge ? '10vw' : '18vw'}
+        />
+        <Skill
+          name="Docker"
+          x={isScreenLarge ? '12.5vw' : '18vw'}
+          y={isScreenLarge ? '10vw' : '18vw'}
+        />
+        <Skill
+          name="Git"
+          x={isScreenLarge ? '7.5vw' : '12vw'}
+          y={isScreenLarge ? '15vw' : '25vw'}
+        />
+        <Skill
+          name="Redux"
+          x={isScreenLarge ? '-1vw' : '-2vw'}
+          y={isScreenLarge ? '13vw' : '23vw'}
+        />
+        <Skill
+          name="TypeScript"
+          x={isScreenLarge ? '-2.5vw' : '-5vw'}
+          y={isScreenLarge ? '-9.5vw' : '-25vw'}
+        />
       </div>
     </>
   );

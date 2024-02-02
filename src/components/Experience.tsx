@@ -27,7 +27,7 @@ const Details = ({
   return (
     <li
       ref={ref as React.RefObject<HTMLLIElement>}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-start
         justify-between md:w[80%]"
     >
       <LiIcon forwardedRef={ref} />
@@ -64,7 +64,7 @@ const Experience = () => {
   });
 
   return (
-    <div className="my-64">
+    <div className="my-64 md:mt-24 md:mb-24">
       <h2 className="font-bold text-8xl mb-32 w-full text-center md:text-6xl xs:text-4xl md:mb-16">
         Experience
       </h2>
@@ -78,59 +78,32 @@ const Experience = () => {
 
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            position="Software Engineer"
-            company="Google"
+            position="Full Stack Web Developer"
+            company="Self Employed"
             companyLink="www.google.com"
-            details="Worked on a team responsible for developing new features for Google's
-search engine, including improving the accuracy and relevance of search results and
-developing new tools for data analysis and visualization.
-"
+            details="Created and maintained a wide variety of web applications, written in TypeScript or JavaScript. 
+            Worked with a range of technologies, including React and Vue for front-end development, and Node.js and Express for back-end development. 
+            Explored full-stack development using SQL and NoSQL databases, including PostgreSQL and MongoDB. Delved into DevOps, using Docker and CI/CD pipelines to deploy and manage applications."
             lengthOfEmployment="2022-Present"
-            address="Mountain View, CA"
+            address="Sofia, Bulgaria"
           />
           <Details
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            details="Worked on a team responsible for developing new features for Google's
-search engine, including improving the accuracy and relevance of search results and
-developing new tools for data analysis and visualization.
-"
+            position="Technical/Business Consultant"
+            company="FactSet"
+            companyLink="https://www.factset.com/"
+            details="Interacted directly with client databases through SQL queries to load, extract, and refine financial data. 
+            Led client implementations of a fintech software solution, contributing to over 98% client retention."
             lengthOfEmployment="2022-Present"
-            address="Mountain View, CA"
+            address="Sofia, Bulgaria"
           />
           <Details
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            details="Worked on a team responsible for developing new features for Google's
-search engine, including improving the accuracy and relevance of search results and
-developing new tools for data analysis and visualization.
-"
-            lengthOfEmployment="2022-Present"
-            address="Mountain View, CA"
-          />
-          <Details
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            details="Worked on a team responsible for developing new features for Google's
-search engine, including improving the accuracy and relevance of search results and
-developing new tools for data analysis and visualization.
-"
-            lengthOfEmployment="2022-Present"
-            address="Mountain View, CA"
-          />
-          <Details
-            position="Software Engineer"
-            company="Google"
-            companyLink="www.google.com"
-            details="Worked on a team responsible for developing new features for Google's
-search engine, including improving the accuracy and relevance of search results and
-developing new tools for data analysis and visualization.
-"
-            lengthOfEmployment="2022-Present"
-            address="Mountain View, CA"
+            position="Business Development Manager"
+            company="HSBC"
+            companyLink="https://www.hsbc.com/"
+            details="Built the annual operating plan and financial targets for the Global Wealth team, covering over 30 markets. 
+            Coordinated the ESG strategy for the team, including the development of new ESG-centered financial products and the implementation of a new sustainability framework."
+            lengthOfEmployment="2016-2021"
+            address="London, UK"
           />
         </ul>
       </div>
@@ -139,25 +112,3 @@ developing new tools for data analysis and visualization.
 };
 
 export default Experience;
-
-// Intern @Facebook
-// Summer 2021 | Menlo Park, CA.
-// Worked on a team responsible for developing a new mobile app feature that allowed users to create and
-// share short-form video content, including designing and implementing a new user interface and developing
-// the backend infrastructure to support the feature.
-//
-// Software Developer @Amazon
-// 2020-2021 | Seattle, WA.
-// Worked on a team responsible for developing Amazon's mobile app, including implementing new features such
-// as product recommendations and user reviews, and optimizing the app's performance and reliability.
-//
-// Software Developer Intern @Microsoft
-// Summer 2019 | Redmond, WA.
-// Worked on a team responsible for developing new features for Microsoft's Windows operating system,
-// including implementing a new user interface for a system settings panel and optimizing the performance of
-// a core system component.
-//
-// Teaching Assistant @MIT
-// Fall 2018 | Massachusetts Ave, Cambridge, MA.
-// Assisted in teaching a course on computer programming, held office hours to help students with assignments,
-// and graded exams and assignments.
