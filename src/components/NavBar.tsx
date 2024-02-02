@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import { GitHubIcon, LinkedInIcon } from './Icons';
 import { usePathname, useRouter } from 'next/navigation';
@@ -71,10 +71,29 @@ const CustomMobileLink = ({
 };
 const NavBar = () => {
   const [isHamBurgerOpen, setIsHamBurgerOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleHamBurgerClick = () => {
+  const toggleHamburgerMenu = () => {
     setIsHamBurgerOpen(!isHamBurgerOpen);
   };
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (
+      modalRef.current &&
+      e.target instanceof HTMLElement &&
+      !modalRef.current.contains(e.target)
+    ) {
+      setIsHamBurgerOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <header
       className="relative flex w-full items-center justify-between px-32 py-8 font-medium
@@ -82,7 +101,7 @@ const NavBar = () => {
     >
       <button
         className="hidden items-center justify-center lg:flex lg:flex-col pt-2"
-        onClick={handleHamBurgerClick}
+        onClick={toggleHamburgerMenu}
       >
         <span
           className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
@@ -144,7 +163,6 @@ const NavBar = () => {
         </nav>
       </div>
 
-      {/* TODO: menu should close when clicked outside and it shuold disappear on resize where the hamburger is not visible */}
       {isHamBurgerOpen ? (
         <motion.div
           className="fixed left-1/2 top-1/2 z-30 flex min-w-[70vw] -translate-x-1/2 -translate-y-1/2
@@ -153,22 +171,23 @@ const NavBar = () => {
           initial={{ scale: 0, opacity: 0, x: '-50', y: '-50' }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
+          ref={modalRef}
         >
           <nav className="flex items-center flex-col justify-center">
             <CustomMobileLink
               href="/"
               title="Home"
-              toggle={handleHamBurgerClick}
+              toggle={toggleHamburgerMenu}
             />
             <CustomMobileLink
               href="/about"
               title="About"
-              toggle={handleHamBurgerClick}
+              toggle={toggleHamburgerMenu}
             />
             <CustomMobileLink
               href="/projects"
               title="Projects"
-              toggle={handleHamBurgerClick}
+              toggle={toggleHamburgerMenu}
             />
           </nav>
           <nav className="flex flex-wrap items-center justify-around mt-3 w-1/2">
