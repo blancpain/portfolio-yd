@@ -235,7 +235,7 @@ const Projects = () => {
                 id="spaceVue"
                 title="spaceVue"
                 type="Featured Project"
-                summary="An interactive visualization of the solar system written in TypeScript and implemented with Vue, Firebase and NASA APIs."
+                summary="An interactive visualization of the solar system written in TypeScript and implemented with Vue, Firebase, and NASA APIs."
                 link="https://blancpain.github.io/space-vue/#/"
                 gitHubLink="https://github.com/blancpain/space-vue"
                 img={spaceVue}
