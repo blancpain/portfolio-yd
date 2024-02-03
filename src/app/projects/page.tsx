@@ -63,7 +63,7 @@ const FeaturedProject = ({
         <FramerImage
           src={img}
           alt={title}
-          className="w-full h-auto"
+          className="w-full h-auto rounded-sm"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
           priority

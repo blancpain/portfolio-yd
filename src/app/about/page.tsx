@@ -5,7 +5,7 @@ import Layout from '@/components/Layout';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
-import profilePic from '../../../public/images/profile/personal-pic.png';
+import profilePic from '../../../public/images/profile/personalPic.webp';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
