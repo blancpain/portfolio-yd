@@ -8,7 +8,6 @@ import Image, { StaticImageData } from 'next/image';
 import { GitHubIcon } from '@/components/Icons';
 import mangify from '../../../public/images/projects/mangify.gif';
 import watchCo from '../../../public/images/projects/watchCo.gif';
-import spaceVue from '../../../public/images/projects/spaceVue.gif';
 import battleShip from '../../../public/images/projects/battleship.gif';
 import { motion } from 'framer-motion';
 
@@ -228,17 +227,6 @@ const Projects = () => {
                 link="https://blancpain.github.io/battleship/"
                 gitHubLink="https://github.com/blancpain/battleship"
                 img={battleShip}
-              />
-            </div>
-            <div className="col-span-12">
-              <FeaturedProject
-                id="spaceVue"
-                title="spaceVue"
-                type="Featured Project"
-                summary="An interactive visualization of the solar system written in TypeScript and implemented with Vue, Firebase, and NASA APIs."
-                link="https://blancpain.github.io/space-vue/#/"
-                gitHubLink="https://github.com/blancpain/space-vue"
-                img={spaceVue}
               />
             </div>
           </div>
