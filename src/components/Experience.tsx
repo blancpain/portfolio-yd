@@ -79,21 +79,18 @@ const Experience = () => {
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
             position="Full Stack Web Developer"
-            company="Self Employed"
-            companyLink="www.google.com"
-            details="Created and maintained a wide variety of web applications, written in TypeScript or JavaScript. 
-            Worked with a range of technologies, including React and Vue for front-end development, and Node.js and Express for back-end development. 
-            Explored full-stack development using SQL and NoSQL databases, including PostgreSQL and MongoDB. Delved into DevOps, using Docker and CI/CD pipelines to deploy and manage applications."
-            lengthOfEmployment="2022-Present"
+            company="MClimate"
+            companyLink="https://mclimate.eu/"
+            details="Web developer working on the MClimate Enterprise, a platform that enables the monitoring, control, and analysis of IoT devices from one place."
+            lengthOfEmployment="2024-Present"
             address="Sofia, Bulgaria"
           />
           <Details
-            position="Technical/Business Consultant"
+            position="Technical Consultant"
             company="FactSet"
             companyLink="https://www.factset.com/"
-            details="Interacted directly with client databases through SQL queries to load, extract, and refine financial data. 
-            Led client implementations of a fintech software solution, contributing to over 98% client retention."
-            lengthOfEmployment="2022-Present"
+            details="Interacted directly with client databases through SQL queries to load, extract, and refine financial data."
+            lengthOfEmployment="2022-2024"
             address="Sofia, Bulgaria"
           />
           <Details
