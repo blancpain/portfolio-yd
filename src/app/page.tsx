@@ -6,7 +6,7 @@ import AnimatedText from '@/components/AnimatedText';
 import Link from 'next/link';
 import { LinkArrow } from '@/components/Icons';
 import lightBulb from '../../public/images/svgs/miscellaneous_icons_1.svg';
-import HireMe from '@/components/HireMe';
+import ContactMe from '@/components/HireMe';
 import Head from 'next/head';
 
 export default function Home() {
@@ -66,7 +66,7 @@ export default function Home() {
             </div>
           </div>
         </Layout>
-        <HireMe />
+        <ContactMe />
         <div className="absolute right-8 bottom-8 inline-block w-24">
           <Image
             src={lightBulb}
