@@ -38,8 +38,7 @@ export default function Home() {
               />
               <p className="my-4 text-base font-medium sm:text-sm">
                 As a skilled full-stack developer, I am dedicated to turning
-                ideas into innovative web applications. Explore my latest
-                projects, showcasing my expertise in web development.
+                ideas into innovative applications.
               </p>
               <div className="flex items-center self-start mt-2 lg:self-center sm:pb-4">
                 <Link

@@ -59,25 +59,20 @@ const About = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm <b>Yasen</b>, a web developer with a passion for
-                creating beautiful, functional, and user-centered digital
-                experiences. With over 2 years of experience in the field, I am
-                always looking for new and innovative ways to bring exciting
-                visions to life.
+                Hi, I'm <b>Yasen</b>, a finance professional turned full-stack
+                web developer. With over 2 years of professional experience in
+                the field, I am always looking for new and innovative ways to
+                bring exciting visions to life.
               </p>
               <p className="font-medium my-4">
                 I firmly believe that coding is more than just lines of text -
-                it's the art of problem-solving and crafting seamless user
-                experiences through technology.
+                it's the art of solving problems and creating digital solutions
+                that meet specific needs.
               </p>
               <p className="font-medium">
-                Whether I'm delving into web development, mobile apps, or any
-                other digital venture, I'm driven by my love for programming and
-                my relentless pursuit of mastering new technologies to tackle
-                intricate challenges head-on. I'm excited about the prospect of
-                channeling my expertise and enthusiasm into your team,
-                contributing to the development of innovative web solutions, and
-                continuing to advance my career in the field.
+                I very much enjoy learning about new technologies, tinkering and
+                working on different projects. Currently, I am learning Rust and
+                looking to explore the world of lower-level programming.
               </p>
             </div>
 
