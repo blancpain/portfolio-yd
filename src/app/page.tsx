@@ -6,7 +6,7 @@ import AnimatedText from '@/components/AnimatedText';
 import Link from 'next/link';
 import { LinkArrow } from '@/components/Icons';
 import lightBulb from '../../public/images/svgs/miscellaneous_icons_1.svg';
-import HireMe from '@/components/HireMe';
+import ContactMe from '@/components/HireMe';
 import Head from 'next/head';
 
 export default function Home() {
@@ -38,8 +38,7 @@ export default function Home() {
               />
               <p className="my-4 text-base font-medium sm:text-sm">
                 As a skilled full-stack developer, I am dedicated to turning
-                ideas into innovative web applications. Explore my latest
-                projects, showcasing my expertise in web development.
+                ideas into innovative applications.
               </p>
               <div className="flex items-center self-start mt-2 lg:self-center sm:pb-4">
                 <Link
@@ -66,7 +65,7 @@ export default function Home() {
             </div>
           </div>
         </Layout>
-        <HireMe />
+        <ContactMe />
         <div className="absolute right-8 bottom-8 inline-block w-24">
           <Image
             src={lightBulb}

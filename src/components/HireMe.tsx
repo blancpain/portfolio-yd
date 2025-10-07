@@ -2,7 +2,7 @@ import React from 'react';
 import { CircularText } from './Icons';
 import Link from 'next/link';
 
-const HireMe = () => {
+const ContactMe = () => {
   return (
     <div
       className="fixed left-4 bottom-4 flex items-center justify-center overflow-hidden
@@ -21,11 +21,11 @@ const HireMe = () => {
             dark:text-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light
             md:w-12 md:h-12 md:text-[10px] font-semibold"
         >
-          Hire Me
+          Contact
         </Link>
       </div>
     </div>
   );
 };
 
-export default HireMe;
+export default ContactMe;
