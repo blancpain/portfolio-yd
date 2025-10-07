@@ -7,8 +7,7 @@ import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { GitHubIcon } from '@/components/Icons';
 import mangify from '../../../public/images/projects/mangify.gif';
-import watchCo from '../../../public/images/projects/watchCo.gif';
-import battleShip from '../../../public/images/projects/battleship.gif';
+import recipeHub from '../../../public/images/projects/RecipeHub.png';
 import { motion } from 'framer-motion';
 
 const FramerImage = motion(Image);
@@ -19,8 +18,8 @@ type FeaturedProjectProps = {
   title: string;
   summary: string;
   img: StaticImageData;
-  link: string;
-  gitHubLink: string;
+  link?: string;
+  gitHubLink?: string;
 };
 
 type ProjectProps = {
@@ -40,6 +39,7 @@ const FeaturedProject = ({
   link,
   gitHubLink,
   id,
+
 }: FeaturedProjectProps) => {
   return (
     <article
@@ -54,9 +54,10 @@ const FeaturedProject = ({
           xs:rounded-[1.5rem]"
       />
       <Link
-        href={link}
-        target="_blank"
-        className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
+        href={link || '#'}
+        target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+        className={`w-1/2 overflow-hidden rounded-lg lg:w-full ${link ? 'cursor-pointer' : 'pointer-events-none cursor-default'}`}
+        onClick={(e) => !link && e.preventDefault()}
         aria-label="View project"
       >
         <FramerImage
@@ -77,9 +78,10 @@ const FeaturedProject = ({
           {type}
         </span>
         <Link
-          href={link}
-          target="_blank"
-          className="hover:underline-offset-2"
+          href={link || '#'}
+          target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+          className={`hover:underline-offset-2 ${!link ? 'pointer-events-none cursor-default' : ''}`}
+          onClick={(e) => !link && e.preventDefault()}
           aria-label="View project"
         >
           <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light sm:text-sm">
@@ -92,21 +94,23 @@ const FeaturedProject = ({
         </p>
         <div className="mt-2 flex items-center">
           <Link
-            href={gitHubLink}
-            target="_blank"
-            className="w-10"
+            href={gitHubLink || '#'}
+            target={gitHubLink && !gitHubLink.startsWith('mailto:') ? "_blank" : undefined}
+            className={`w-10 ${!gitHubLink ? 'pointer-events-none cursor-default' : ''}`}
+            onClick={(e) => !gitHubLink && e.preventDefault()}
             aria-label="Github"
           >
             <GitHubIcon />
           </Link>
           <Link
-            href={link}
-            target="_blank"
+            href={link || '#'}
+            target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+            onClick={(e) => !link && e.preventDefault()}
             aria-label="View project"
-            className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light
-              dark:text-dark sm:px-4 sm:text-base"
+            className={`ml-4 rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold dark:bg-light
+              dark:text-dark sm:px-4 sm:text-base ${!link ? 'pointer-events-none cursor-default' : ''}`}
           >
-            View {title}
+            {link?.startsWith('mailto:') ? 'Request access' : `View ${title}`}
           </Link>
         </div>
       </div>
@@ -127,10 +131,11 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
           xs:rounded-[1.5rem] md:-right-2 md:w-[101%] xs:h-[102%]"
       />
       <Link
-        href={link}
-        target="_blank"
+        href={link || '#'}
+        target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+        onClick={(e) => !link && e.preventDefault()}
         aria-label="View project"
-        className="w-full cursor-pointer overflow-hidden rounded-lg"
+        className={`w-full overflow-hidden rounded-lg ${link ? 'cursor-pointer' : 'pointer-events-none cursor-default'}`}
       >
         <FramerImage
           src={img}
@@ -146,9 +151,10 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
           {type}
         </span>
         <Link
-          href={link}
-          target="_blank"
-          className="hover:underline-offset-2"
+          href={link || '#'}
+          target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+          className={`hover:underline-offset-2 ${!link ? 'pointer-events-none cursor-default' : ''}`}
+          onClick={(e) => !link && e.preventDefault()}
           aria-label="View project"
         >
           <h2 className="my-2 w-full text-left text-3xl font-bold lg:text-2xl">
@@ -158,17 +164,19 @@ const Project = ({ title, type, img, link, gitHubLink, id }: ProjectProps) => {
 
         <div className="w-full mt-2 flex items-center justify-between">
           <Link
-            href={link}
-            target="_blank"
-            className="text-lg font-semibold underline md:text-base"
+            href={link || '#'}
+            target={link && !link.startsWith('mailto:') ? "_blank" : undefined}
+            className={`text-lg font-semibold underline md:text-base ${!link ? 'pointer-events-none cursor-default' : ''}`}
+            onClick={(e) => !link && e.preventDefault()}
             aria-label="View project"
           >
             View
           </Link>
           <Link
-            href={gitHubLink}
-            target="_blank"
-            className="w-8 md:w-6"
+            href={gitHubLink || '#'}
+            target={gitHubLink && !gitHubLink.startsWith('mailto:') ? "_blank" : undefined}
+            className={`w-8 md:w-6 ${!gitHubLink ? 'pointer-events-none cursor-default' : ''}`}
+            onClick={(e) => !gitHubLink && e.preventDefault()}
             aria-label="GitHub"
           >
             <GitHubIcon />
@@ -200,33 +208,25 @@ const Projects = () => {
           >
             <div className="col-span-12">
               <FeaturedProject
+                id="recipehub"
+                title="recipehub"
+                type="Featured Project"
+                summary="A full-stack Next.js cooking app featuring blazing fast search with Meilisearch. Still under development, expected to go live soon. Stay tuned!"
+                link="mailto:y_dimitrov@ymail.com?subject=Request%20Access%20RecipeHub"
+                gitHubLink="mailto:y_dimitrov@ymail.com?subject=Request%20Access%20RecipeHub"
+                img={recipeHub}
+              />
+            </div>
+
+            <div className="col-span-12">
+              <FeaturedProject
                 id="mangify"
                 title="mangify"
                 type="Featured Project"
                 summary="A full-stack meal planning app written in TypeScript, implemented with React, Node, Express, and PostgreSQL."
-                link="https://mangify.org/"
+                link="https://github.com/blancpain/mangify"
                 gitHubLink="https://github.com/blancpain/mangify"
                 img={mangify}
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                id="watchCo"
-                title="watchCo"
-                type="Project"
-                link="https://blancpain.github.io/shopping-cart/"
-                gitHubLink="https://github.com/blancpain/shopping-cart"
-                img={watchCo}
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                id="battleship"
-                title="battleship"
-                type="Project"
-                link="https://blancpain.github.io/battleship/"
-                gitHubLink="https://github.com/blancpain/battleship"
-                img={battleShip}
               />
             </div>
           </div>
