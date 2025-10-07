@@ -52,12 +52,12 @@ const Skills = () => {
           Web
         </motion.div>
         <Skill
-          name="HTML"
+          name="MongoDB"
           x={isScreenLarge ? '-20vw' : '-25vw'}
           y={isScreenLarge ? '1vw' : '2vw'}
         />
         <Skill
-          name="CSS"
+          name="RabbitMQ"
           x={isScreenLarge ? '-2.5vw' : '-5vw'}
           y={isScreenLarge ? '-5vw' : '-10vw'}
         />
@@ -82,17 +82,17 @@ const Skills = () => {
           y={isScreenLarge ? '-6vw' : '-12vw'}
         />
         <Skill
-          name="Tailwind CSS"
+          name="PHP"
           x={isScreenLarge ? '15vw' : '29vw'}
           y={isScreenLarge ? '-2.5vw' : '-5vw'}
         />
         <Skill
-          name="Node.js"
+          name="Node"
           x={isScreenLarge ? '-2.5vw' : '0vw'}
           y={isScreenLarge ? '-15vw' : '-20vw'}
         />
         <Skill
-          name="PostgreSQL"
+          name="SQL"
           x={isScreenLarge ? '-20vw' : '-25vw'}
           y={isScreenLarge ? '10vw' : '18vw'}
         />
@@ -107,7 +107,7 @@ const Skills = () => {
           y={isScreenLarge ? '15vw' : '25vw'}
         />
         <Skill
-          name="Redux"
+          name="Redis"
           x={isScreenLarge ? '-1vw' : '-2vw'}
           y={isScreenLarge ? '13vw' : '23vw'}
         />
