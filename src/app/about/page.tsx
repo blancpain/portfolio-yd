@@ -59,15 +59,15 @@ const About = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm <b>Yasen</b>, a finance professional turned full-stack
-                web developer. With over 2 years of professional experience in
-                the field, I am always looking for new and innovative ways to
-                bring exciting visions to life.
+                Hi, I'm <b>Yasen</b>, a full-stack web developer. With over 2
+                years of professional experience in the field, I am always
+                looking for new and innovative ways to bring exciting visions to
+                life.
               </p>
               <p className="font-medium my-4">
-                I firmly believe that coding is more than just lines of text -
-                it's the art of solving problems and creating digital solutions
-                that meet specific needs.
+                I firmly believe that coding is more than just writing a set of
+                instructions - it's the art of solving problems and creating
+                digital solutions that meet specific needs.
               </p>
               <p className="font-medium">
                 I very much enjoy learning about new technologies, tinkering and
