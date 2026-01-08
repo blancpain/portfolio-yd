@@ -62,7 +62,7 @@ const Skills = () => {
           y={isScreenLarge ? '-5vw' : '-10vw'}
         />
         <Skill
-          name="JavaScript"
+          name="Rust"
           x={isScreenLarge ? '10vw' : '20vw'}
           y={isScreenLarge ? '3vw' : '6vw'}
         />
@@ -70,11 +70,6 @@ const Skills = () => {
           name="React"
           x={isScreenLarge ? '-5vw' : '0vw'}
           y={isScreenLarge ? '8vw' : '12vw'}
-        />
-        <Skill
-          name="Vue"
-          x={isScreenLarge ? '-15vw' : '-20vw'}
-          y={isScreenLarge ? '-10vw' : '-15vw'}
         />
         <Skill
           name="Next.js"
@@ -87,7 +82,7 @@ const Skills = () => {
           y={isScreenLarge ? '-2.5vw' : '-5vw'}
         />
         <Skill
-          name="Node"
+          name="Node.js"
           x={isScreenLarge ? '-2.5vw' : '0vw'}
           y={isScreenLarge ? '-15vw' : '-20vw'}
         />
@@ -102,7 +97,7 @@ const Skills = () => {
           y={isScreenLarge ? '10vw' : '18vw'}
         />
         <Skill
-          name="Git"
+          name="Python"
           x={isScreenLarge ? '7.5vw' : '12vw'}
           y={isScreenLarge ? '15vw' : '25vw'}
         />
