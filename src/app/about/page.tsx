@@ -71,7 +71,7 @@ const About = () => {
               <p className="font-medium">
                 I very much enjoy learning about new technologies, tinkering and
                 working on different projects. Currently, I am learning Rust and
-                looking to explore the world of systems-level programming.
+                looking to explore the world of systems programming.
               </p>
             </div>
 
