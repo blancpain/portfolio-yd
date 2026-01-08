@@ -59,7 +59,7 @@ const About = () => {
                 Biography
               </h2>
               <p className="font-medium">
-                Hi, I'm <b>Yasen</b>, a full-stack web developer. With over 2
+                Hi, I'm <b>Yasen</b>, a full-stack web developer. With over 3
                 years of professional experience in the field, I am always
                 looking for new and innovative ways to bring exciting visions to
                 life.
@@ -72,7 +72,7 @@ const About = () => {
               <p className="font-medium">
                 I very much enjoy learning about new technologies, tinkering and
                 working on different projects. Currently, I am learning Rust and
-                looking to explore the world of lower-level programming.
+                looking to explore the world of systems-level programming.
               </p>
             </div>
 
