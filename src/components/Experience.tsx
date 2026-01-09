@@ -78,11 +78,19 @@ const Experience = () => {
 
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
+            position="Software Developer"
+            company="LimeChain"
+            companyLink="https://limechain.tech/"
+            details="Developed and shipped a prompt-level improvement to a Python-based AI blockchain chatbot built with LangChain, enabling accurate total holdings computation for user accounts."
+            lengthOfEmployment="2025-2026"
+            address="Sofia, Bulgaria"
+          />
+          <Details
             position="Full-Stack Software Developer"
             company="MClimate"
             companyLink="https://mclimate.eu/"
             details="Developed and maintained a suite of microservices powering an interactive web application for real-time IoT device management and analytics."
-            lengthOfEmployment="2024-Present"
+            lengthOfEmployment="2024-2025"
             address="Sofia, Bulgaria"
           />
           <Details
