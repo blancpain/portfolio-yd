@@ -211,7 +211,7 @@ const Projects = () => {
                 id="mangify"
                 title="Mangify"
                 type="Featured Project"
-                summary="A full-stack Next.js cooking app featuring blazing fast search with Meilisearch. Still under development, expected to go live soon. Stay tuned!"
+                summary="A full-stack Next.js recipes app featuring blazing fast search with Meilisearch. Live now but still under active development!"
                 link="https://www.mangify.net"
                 gitHubLink="mailto:y_dimitrov@ymail.com?subject=Request%20Access%20RecipeHub"
                 img={recipeHub}
@@ -223,7 +223,7 @@ const Projects = () => {
                 id="meal-planner"
                 title="Meal Planner"
                 type="Featured Project"
-                summary="A full-stack meal planning app written in TypeScript, implemented with React, Node, Express, and PostgreSQL."
+                summary="A meal planning app written in TypeScript, implemented with React, Node, Express, and PostgreSQL."
                 link="https://github.com/blancpain/mangify"
                 gitHubLink="https://github.com/blancpain/meal-planner"
                 img={mangify}
