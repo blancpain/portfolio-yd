@@ -30,7 +30,7 @@ export default function Home() {
                   50vw"
               />
             </div>
-            <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center">
+            <div className="w-1/2 flex flex-col items-start self-center lg:w-full lg:items-center lg:text-center">
               <AnimatedText
                 text="Hi there 👋, I'm Yasen."
                 className="!text-7xl !text-left xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl
