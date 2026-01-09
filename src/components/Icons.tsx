@@ -57,11 +57,11 @@ type CircularTextProps = {
 
 export const CircularText = ({
   className,
-  text = 'Software Engineer • Backend Developer • ',
+  text = 'Software Engineer • Backend Developer •\u00a0',
   ...rest
 }: CircularTextProps) => {
   const pathId = `circlePath-${useId().replace(/:/g, '')}`;
-  const circleRadius = 110;
+  const circleRadius = 120;
   const circlePathLength = 2 * Math.PI * circleRadius;
 
   return (
@@ -69,7 +69,7 @@ export const CircularText = ({
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 300 300"
-      className={`w-full h-auto ${className}`}
+      className={`w-full h-auto overflow-visible ${className}`}
       {...rest}
     >
       <defs>
@@ -83,13 +83,13 @@ export const CircularText = ({
           fill="none"
         />
       </defs>
-      <text fill="currentColor" fontSize="34" fontWeight="900" textAnchor="middle">
+      <text fill="currentColor" fontSize="32" fontWeight="900" textAnchor="middle">
         <textPath
           href={`#${pathId}`}
           xlinkHref={`#${pathId}`}
           startOffset="50%"
           textLength={circlePathLength}
-          lengthAdjust="spacingAndGlyphs"
+          lengthAdjust="spacing"
         >
           {text}
         </textPath>
