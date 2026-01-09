@@ -154,7 +154,7 @@ const NavBar = () => {
         </nav>
         <nav className="flex flex-wrap items-center justify-center">
           <motion.a
-            href="https://github.com"
+            href="https://github.com/blancpain"
             aria-label="GitHub profile"
             target="_blank"
             whileHover={{
