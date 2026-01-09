@@ -49,7 +49,7 @@ const Skills = () => {
             xs:text-xs xs:p-2"
           whileHover={{ scale: 1.05 }}
         >
-          Web
+          Backend
         </motion.div>
         <Skill
           name="MongoDB"
@@ -67,7 +67,7 @@ const Skills = () => {
           y={isScreenLarge ? '3vw' : '6vw'}
         />
         <Skill
-          name="React"
+          name="GraphQL"
           x={isScreenLarge ? '-5vw' : '0vw'}
           y={isScreenLarge ? '8vw' : '12vw'}
         />
@@ -108,7 +108,7 @@ const Skills = () => {
         />
         <Skill
           name="TypeScript"
-          x={isScreenLarge ? '-2.5vw' : '-5vw'}
+          x={isScreenLarge ? '-2.5vw' : '-10vw'}
           y={isScreenLarge ? '-9.5vw' : '-25vw'}
         />
       </div>
