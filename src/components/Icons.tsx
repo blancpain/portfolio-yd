@@ -61,6 +61,8 @@ export const CircularText = ({
   ...rest
 }: CircularTextProps) => {
   const pathId = `circlePath-${useId().replace(/:/g, '')}`;
+  const circleRadius = 110;
+  const circlePathLength = 2 * Math.PI * circleRadius;
 
   return (
     <svg
@@ -73,12 +75,22 @@ export const CircularText = ({
       <defs>
         <path
           id={pathId}
-          d="M 150, 150 m -110, 0 a 110,110 0 0,1 220,0 a 110,110 0 0,1 -220,0"
+          d={`M 150, 150 m -${circleRadius}, 0 a ${circleRadius},${circleRadius} 0 0,1 ${
+            circleRadius * 2
+          },0 a ${circleRadius},${circleRadius} 0 0,1 -${
+            circleRadius * 2
+          },0`}
           fill="none"
         />
       </defs>
-      <text fill="currentColor" fontSize="34" fontWeight="900">
-        <textPath href={`#${pathId}`} xlinkHref={`#${pathId}`}>
+      <text fill="currentColor" fontSize="34" fontWeight="900" textAnchor="middle">
+        <textPath
+          href={`#${pathId}`}
+          xlinkHref={`#${pathId}`}
+          startOffset="50%"
+          textLength={circlePathLength}
+          lengthAdjust="spacingAndGlyphs"
+        >
           {text}
         </textPath>
       </text>
