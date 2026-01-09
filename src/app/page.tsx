@@ -37,8 +37,8 @@ export default function Home() {
                   sm:!text-3xl xs:!text-3xl"
               />
               <p className="my-4 text-base font-medium sm:text-sm">
-                As a skilled full-stack developer, I am dedicated to turning
-                ideas into innovative applications.
+                As a skilled software developer, I am dedicated to turning ideas
+                into innovative applications.
               </p>
               <div className="flex items-center self-start mt-2 lg:self-center sm:pb-4">
                 <Link
