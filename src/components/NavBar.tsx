@@ -168,7 +168,7 @@ const NavBar = () => {
             <GitHubIcon />
           </motion.a>
           <motion.a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/yasdim"
             aria-label="LinkedIn profile"
             target="_blank"
             whileHover={{
