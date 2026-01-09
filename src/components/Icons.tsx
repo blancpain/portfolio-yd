@@ -1,4 +1,4 @@
-import { SVGProps } from 'react';
+import { SVGProps, useId } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
 type IconProps = {
@@ -59,25 +59,32 @@ export const CircularText = ({
   className,
   text = 'Software Engineer • Backend Developer • ',
   ...rest
-}: CircularTextProps) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 300 300"
-    className={`w-full h-auto ${className}`}
-    {...rest}
-  >
-    <defs>
-      <path
-        id="circlePath"
-        d="M 150, 150 m -110, 0 a 110,110 0 0,1 220,0 a 110,110 0 0,1 -220,0"
-        fill="none"
-      />
-    </defs>
-    <text fill="currentColor" fontSize="33" fontWeight="900">
-      <textPath href="#circlePath">{text}</textPath>
-    </text>
-  </svg>
-);
+}: CircularTextProps) => {
+  const pathId = `circlePath-${useId().replace(/:/g, '')}`;
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 300 300"
+      className={`w-full h-auto ${className}`}
+      {...rest}
+    >
+      <defs>
+        <path
+          id={pathId}
+          d="M 150, 150 m -110, 0 a 110,110 0 0,1 220,0 a 110,110 0 0,1 -220,0"
+          fill="none"
+        />
+      </defs>
+      <text fill="currentColor" fontSize="34" fontWeight="900">
+        <textPath href={`#${pathId}`} xlinkHref={`#${pathId}`}>
+          {text}
+        </textPath>
+      </text>
+    </svg>
+  );
+};
 
 export const LinkArrow = ({ className, ...rest }: IconProps) => (
   <svg
