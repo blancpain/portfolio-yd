@@ -73,7 +73,7 @@ export const CircularText = ({
         fill="none"
       />
     </defs>
-    <text fill="currentColor" fontSize="34" fontWeight="900">
+    <text fill="currentColor" fontSize="33" fontWeight="900">
       <textPath href="#circlePath">{text}</textPath>
     </text>
   </svg>
