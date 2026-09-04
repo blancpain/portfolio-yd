@@ -6,9 +6,7 @@ const ContactMe = () => {
     <div className="sm:!right-5 fixed bottom-4 left-4 flex 8xl:hidden items-center justify-center md:absolute md:top-0 md:right-8 md:bottom-auto md:left-auto">
       <div className="relative flex h-auto w-48 items-center justify-center md:w-24">
         <CircularText
-          className={
-            'animate-spin-slow fill-dark motion-reduce:animate-none dark:fill-light'
-          }
+          className={'animate-spin-slow fill-dark dark:fill-light'}
         />
         <Link
           href="mailto:y_dimitrov@ymai.com"

@@ -1,5 +1,5 @@
 'use client';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type React from 'react';
 
 type Ring = {
@@ -63,30 +63,23 @@ const Skill = ({
   angle: number;
   delay: number;
 }) => {
-  const reduceMotion = useReducedMotion();
   const target = toPosition(radius, angle);
 
   return (
     <motion.div
       className={pillClassName}
       style={{ x: '-50%', y: '-50%' }}
-      // Initial styles are server-rendered, so they must not depend on the
-      // viewer's reduced-motion setting; only the transition does.
       initial={{ left: '50%', top: '50%', opacity: 0, scale: 0.3 }}
       whileInView={{ ...target, opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.1 }}
-      transition={
-        reduceMotion
-          ? { duration: 0 }
-          : {
-              type: 'spring',
-              stiffness: 70,
-              damping: 14,
-              mass: 0.8,
-              delay,
-              opacity: { duration: 0.4, delay },
-            }
-      }
+      transition={{
+        type: 'spring',
+        stiffness: 70,
+        damping: 14,
+        mass: 0.8,
+        delay,
+        opacity: { duration: 0.4, delay },
+      }}
       viewport={{ once: true, amount: 0.3 }}
     >
       {name}
@@ -95,7 +88,6 @@ const Skill = ({
 };
 
 const Orbit = ({ ring, index }: { ring: Ring; index: number }) => {
-  const reduceMotion = useReducedMotion();
   const size = `${ring.radius * 2}%`;
 
   return (
@@ -104,16 +96,12 @@ const Orbit = ({ ring, index }: { ring: Ring; index: number }) => {
       style={{ width: size, height: size, x: '-50%', y: '-50%' }}
       initial={{ opacity: 0, scale: 0.6 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={
-        reduceMotion
-          ? { duration: 0 }
-          : { duration: 0.8, delay: index * 0.15, ease: 'easeOut' }
-      }
+      transition={{ duration: 0.8, delay: index * 0.15, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.3 }}
       aria-hidden
     >
       <div
-        className="absolute inset-0 animate-[spin_var(--orbit-duration)_linear_infinite] motion-reduce:hidden"
+        className="absolute inset-0 animate-[spin_var(--orbit-duration)_linear_infinite]"
         style={
           {
             '--orbit-duration': ring.orbitDuration,

@@ -39,7 +39,7 @@ const LiIcon: React.FC<LiIconProps> = ({ forwardedRef }) => {
           cx="75"
           cy="50"
           r="10"
-          className="animate-pulse fill-primary stroke-1 motion-reduce:animate-none dark:fill-primaryDark"
+          className="animate-pulse fill-primary stroke-1 dark:fill-primaryDark"
         />
       </svg>
     </figure>
