@@ -80,9 +80,10 @@ const CustomMobileLink = ({
 const NavBar = () => {
   const [isHamBurgerOpen, setIsHamBurgerOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   const toggleHamburgerMenu = () => {
-    setIsHamBurgerOpen(!isHamBurgerOpen);
+    setIsHamBurgerOpen((open) => !open);
   };
 
   useEffect(() => {
@@ -90,7 +91,10 @@ const NavBar = () => {
       if (
         modalRef.current &&
         e.target instanceof HTMLElement &&
-        !modalRef.current.contains(e.target)
+        !modalRef.current.contains(e.target) &&
+        // The hamburger button toggles the menu itself on click; closing it
+        // here on mousedown would make the click reopen it immediately.
+        !hamburgerRef.current?.contains(e.target)
       ) {
         setIsHamBurgerOpen(false);
       }
@@ -105,6 +109,7 @@ const NavBar = () => {
     <header className="sm:!px-8 relative z-10 flex w-full items-center justify-between px-32 py-8 font-medium md:px-12 lg:px-16 dark:text-light">
       <button
         type="button"
+        ref={hamburgerRef}
         className="hidden items-center justify-center pt-2 lg:flex lg:flex-col"
         onClick={toggleHamburgerMenu}
         aria-label="Toggle menu"
