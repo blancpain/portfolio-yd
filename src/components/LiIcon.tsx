@@ -2,7 +2,7 @@
 import { motion, useScroll } from 'framer-motion';
 
 type LiIconProps = {
-  forwardedRef: React.RefObject<HTMLElement>;
+  forwardedRef: React.RefObject<HTMLElement | null>;
 };
 
 const LiIcon: React.FC<LiIconProps> = ({ forwardedRef }) => {
@@ -14,22 +14,23 @@ const LiIcon: React.FC<LiIconProps> = ({ forwardedRef }) => {
   return (
     <figure className="absolute left-0 stroke-dark dark:stroke-light">
       <svg
+        aria-hidden="true"
         width="75"
         height="75"
         viewBox="0 0 100 100"
-        className="-rotate-90 md:w-[60px] md:h-[60px] xs:w-[40px] xs:h-[40px]"
+        className="xs:h-[40px] xs:w-[40px] -rotate-90 md:h-[60px] md:w-[60px]"
       >
         <circle
           cx="75"
           cy="50"
           r="20"
-          className="stroke-primary dark:stroke-primaryDark stroke-1 fill-none"
+          className="fill-none stroke-1 stroke-primary dark:stroke-primaryDark"
         />
         <motion.circle
           cx="75"
           cy="50"
           r="20"
-          className="stroke-[5px] fill-light dark:fill-dark"
+          className="fill-light stroke-[5px] dark:fill-dark"
           style={{
             pathLength: scrollYProgress,
           }}
@@ -38,7 +39,7 @@ const LiIcon: React.FC<LiIconProps> = ({ forwardedRef }) => {
           cx="75"
           cy="50"
           r="10"
-          className="stroke-1 animate-pulse fill-primary dark:fill-primaryDark"
+          className="animate-pulse fill-primary stroke-1 motion-reduce:animate-none dark:fill-primaryDark"
         />
       </svg>
     </figure>

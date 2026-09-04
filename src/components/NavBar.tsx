@@ -1,10 +1,10 @@
 'use client';
-import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react';
-import Logo from './Logo';
-import { GitHubIcon, LinkedInIcon } from './Icons';
-import { usePathname, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import { GitHubIcon, LinkedInIcon } from './Icons';
+import Logo from './Logo';
 import ThemeSwitch from './ThemeSwitch';
 
 const CustomLink = ({
@@ -28,8 +28,7 @@ const CustomLink = ({
     >
       {title}
       <span
-        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-dark transition-[width]
-        duration-300 group-hover:w-full dark:bg-light ${
+        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-dark transition-[width] duration-300 group-hover:w-full dark:bg-light ${
           currentPathName === href ? 'w-full' : 'w-0'
         }`}
       >
@@ -62,14 +61,14 @@ const CustomMobileLink = ({
 
   return (
     <button
-      className={`${className} group relative text-light dark:text-dark my-2`}
+      type="button"
+      className={`${className} group relative my-2 text-light dark:text-dark`}
       onClick={handleClick}
       aria-label={ariaLabel}
     >
       {title}
       <span
-        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-light
-        transition-[width] duration-300 group-hover:w-full dark:bg-dark ${
+        className={`ease absolute -bottom-0.5 left-0 inline-block h-[1px] bg-light transition-[width] duration-300 group-hover:w-full dark:bg-dark ${
           currentPathName === href ? 'w-full' : 'w-0'
         }`}
       >
@@ -86,17 +85,16 @@ const NavBar = () => {
     setIsHamBurgerOpen(!isHamBurgerOpen);
   };
 
-  const handleClickOutside = (e: MouseEvent) => {
-    if (
-      modalRef.current &&
-      e.target instanceof HTMLElement &&
-      !modalRef.current.contains(e.target)
-    ) {
-      setIsHamBurgerOpen(false);
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        modalRef.current &&
+        e.target instanceof HTMLElement &&
+        !modalRef.current.contains(e.target)
+      ) {
+        setIsHamBurgerOpen(false);
+      }
+    };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -104,28 +102,23 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header
-      className="relative flex w-full items-center justify-between px-32 py-8 font-medium
-        dark:text-light z-10 lg:px-16 md:px-12 sm:!px-8"
-    >
+    <header className="sm:!px-8 relative z-10 flex w-full items-center justify-between px-32 py-8 font-medium md:px-12 lg:px-16 dark:text-light">
       <button
-        className="hidden items-center justify-center lg:flex lg:flex-col pt-2"
+        type="button"
+        className="hidden items-center justify-center pt-2 lg:flex lg:flex-col"
         onClick={toggleHamburgerMenu}
         aria-label="Toggle menu"
       >
         <span
-          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
-          dark:bg-light ${
+          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out dark:bg-light ${
             isHamBurgerOpen ? 'translate-y-1 rotate-45' : '-translate-y-0.5'
           }`}
         ></span>
         <span
-          className={`my-0.5 block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
-          dark:bg-light ${isHamBurgerOpen ? 'opacity-0' : 'opacity-100'}`}
+          className={`my-0.5 block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out dark:bg-light ${isHamBurgerOpen ? 'opacity-0' : 'opacity-100'}`}
         ></span>
         <span
-          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out
-          dark:bg-light ${
+          className={`block h-0.5 w-6 rounded-sm bg-dark transition-all duration-300 ease-out dark:bg-light ${
             isHamBurgerOpen ? '-translate-y-1 -rotate-45' : 'translate-y-0.5'
           }`}
         ></span>
@@ -164,6 +157,7 @@ const NavBar = () => {
               scale: 0.9,
             }}
             className="mr-3 w-6"
+            rel="noopener"
           >
             <GitHubIcon />
           </motion.a>
@@ -178,11 +172,13 @@ const NavBar = () => {
               scale: 0.9,
             }}
             className="w-6"
+            rel="noopener"
           >
             <LinkedInIcon />
           </motion.a>
 
           <button
+            type="button"
             className={'ml-2 flex items-center justify-center rounded-full p-1'}
             aria-label="Toggle theme switch"
           >
@@ -193,15 +189,13 @@ const NavBar = () => {
 
       {isHamBurgerOpen ? (
         <motion.div
-          className="fixed left-1/2 top-1/2 z-30 flex min-w-[70vw] -translate-x-1/2 -translate-y-1/2
-            flex-col items-center justify-between rounded-lg bg-dark/90 py-32
-            backdrop-blur-md dark:bg-light/75 large:hidden"
+          className="fixed top-1/2 left-1/2 z-30 flex large:hidden min-w-[70vw] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-between rounded-lg bg-dark/90 py-32 backdrop-blur-md dark:bg-light/75"
           initial={{ scale: 0, opacity: 0, x: '-50', y: '-50' }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
           ref={modalRef}
         >
-          <nav className="flex items-center flex-col justify-center">
+          <nav className="flex flex-col items-center justify-center">
             <CustomMobileLink
               href="/"
               title="Home"
@@ -221,7 +215,7 @@ const NavBar = () => {
               ariaLabel="Projects page"
             />
           </nav>
-          <nav className="flex flex-wrap items-center justify-around mt-3 w-1/2">
+          <nav className="mt-3 flex w-1/2 flex-wrap items-center justify-around">
             <motion.a
               href="https://github.com/blancpain"
               aria-label="GitHub profile"
@@ -232,7 +226,8 @@ const NavBar = () => {
               whileTap={{
                 scale: 0.9,
               }}
-              className="mr-3 w-6 sm:mx-1 bg-light rounded-full dark:bg-dark"
+              className="mr-3 w-6 rounded-full bg-light sm:mx-1 dark:bg-dark"
+              rel="noopener"
             >
               <GitHubIcon />
             </motion.a>
@@ -247,13 +242,14 @@ const NavBar = () => {
                 scale: 0.9,
               }}
               className="w-6 sm:mx-1"
+              rel="noopener"
             >
               <LinkedInIcon />
             </motion.a>
 
             <button
-              className={`ml-2 flex items-center justify-center rounded-full p-1 text-light dark:text-dark
-                sm:mx-1`}
+              type="button"
+              className={`ml-2 flex items-center justify-center rounded-full p-1 text-light sm:mx-1 dark:text-dark`}
               aria-label="Toggle theme switch"
             >
               <ThemeSwitch />
@@ -261,7 +257,7 @@ const NavBar = () => {
           </nav>
         </motion.div>
       ) : null}
-      <div className="absolute left-[50%] top-2 translate-x-[-50%]">
+      <div className="absolute top-2 left-[50%] translate-x-[-50%]">
         <Logo />
       </div>
     </header>

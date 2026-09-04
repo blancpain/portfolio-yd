@@ -1,12 +1,12 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
-import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import { Providers } from './prodiders';
+import NavBar from '@/components/NavBar';
 import PageAnimatePresence from '@/components/PageAnimatePresence';
 import { ScrollToHashElement } from '@/components/ScrollToHashElement';
+import { Providers } from './prodiders';
 
 const monserrat = Montserrat({
   subsets: ['latin'],
@@ -27,11 +27,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="8xl:flex 8xl:flex-col 8xl:items-center 8xl:!p-0 8xl:!m-0"
+      className="8xl:!p-0 8xl:!m-0 8xl:flex 8xl:flex-col 8xl:items-center"
     >
       <body
-        className={`${monserrat.variable} font-mont bg-light dark:bg-dark w-full min-h-screen
-        max-w-[3072px]`}
+        className={`${monserrat.variable} min-h-screen w-full max-w-[3072px] bg-light font-mont dark:bg-dark`}
       >
         <Providers>
           <ScrollToHashElement />

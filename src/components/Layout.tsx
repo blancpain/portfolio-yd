@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -8,8 +8,7 @@ type Props = {
 const Layout = ({ children, className = '' }: Props) => {
   return (
     <div
-      className={`w-full h-full inline-block z-0 bg-light p-32 dark:bg-dark xl:p-24 lg:p-12 md:p-8
-      sm:p-6 xs:p-6 ${className}`}
+      className={`z-0 inline-block h-full w-full bg-light p-32 xs:p-6 sm:p-6 md:p-8 lg:p-12 xl:p-24 dark:bg-dark ${className}`}
     >
       {children}
     </div>

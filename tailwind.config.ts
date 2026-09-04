@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const config: Config = {
@@ -36,28 +37,15 @@ const config: Config = {
       },
       animation: {
         'spin-slow': 'spin 9s linear infinite',
+        rainbow: 'rainbow 1s linear infinite',
       },
-      backgroundImage: {
-        circularLight:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 4px,#f5f5f5 12px,#f5f5f5 140px)',
-        circularDark:
-          'repeating-radial-gradient(rgba(255,255,255,0.5) 7px,#1b1b1b 15px,#1b1b1b 140px)',
-        circularLightXl:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 7px,#f5f5f5 120px)',
-        circularDarkXl:
-          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 12px,#1b1b1b 120px)',
-        circularLightLg:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 80px)',
-        circularDarkLg:
-          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 8px,#1b1b1b 80px)',
-        circularLightMd:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 4px,#f5f5f5 50px)',
-        circularDarkMd:
-          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 8px,#1b1b1b 50px)',
-        circularLightSm:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 4px,#f5f5f5 40px)',
-        circularDarkSm:
-          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 6px,#1b1b1b 40px)',
+      keyframes: {
+        rainbow: {
+          '0%, 100%': { backgroundColor: '#121212' },
+          '25%': { backgroundColor: 'rgba(131,58,180,1)' },
+          '50%': { backgroundColor: 'rgba(253,29,29,1)' },
+          '75%': { backgroundColor: 'rgba(252,176,69,1)' },
+        },
       },
     },
   },

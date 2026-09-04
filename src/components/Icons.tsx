@@ -1,5 +1,5 @@
-import { SVGProps, useId } from 'react';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { type SVGProps, useId } from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
 type IconProps = {
   className?: string;
@@ -13,11 +13,12 @@ type ThemeIconProps = {
 
 export const GitHubIcon = ({ className, ...rest }: IconProps) => (
   <svg
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     viewBox="0 0 512 512"
-    className={` w-full h-auto ${className}`}
+    className={`h-auto w-full ${className}`}
     {...rest}
   >
     <path fill="rgba(255, 255, 255, 0)" d="M0 0h512v512H0z" />
@@ -30,12 +31,13 @@ export const GitHubIcon = ({ className, ...rest }: IconProps) => (
 
 export const LinkedInIcon = ({ className, ...rest }: IconProps) => (
   <svg
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     viewBox="0 0 256 256"
     {...rest}
-    className={`w-full h-auto ${className}`}
+    className={`h-auto w-full ${className}`}
   >
     <path fill="none" d="M0 0h256v256H0z" />
     <g fill="none">
@@ -66,10 +68,11 @@ export const CircularText = ({
 
   return (
     <svg
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 300 300"
-      className={`w-full h-auto overflow-visible ${className}`}
+      className={`h-auto w-full overflow-visible ${className}`}
       {...rest}
     >
       <defs>
@@ -77,13 +80,16 @@ export const CircularText = ({
           id={pathId}
           d={`M 150, 150 m -${circleRadius}, 0 a ${circleRadius},${circleRadius} 0 0,1 ${
             circleRadius * 2
-          },0 a ${circleRadius},${circleRadius} 0 0,1 -${
-            circleRadius * 2
-          },0`}
+          },0 a ${circleRadius},${circleRadius} 0 0,1 -${circleRadius * 2},0`}
           fill="none"
         />
       </defs>
-      <text fill="currentColor" fontSize="32" fontWeight="900" textAnchor="middle">
+      <text
+        fill="currentColor"
+        fontSize="32"
+        fontWeight="900"
+        textAnchor="middle"
+      >
         <textPath
           href={`#${pathId}`}
           xlinkHref={`#${pathId}`}
@@ -100,11 +106,12 @@ export const CircularText = ({
 
 export const LinkArrow = ({ className, ...rest }: IconProps) => (
   <svg
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
     viewBox="0 0 24 24"
-    className={`w-full h-auto ${className}`}
+    className={`h-auto w-full ${className}`}
     {...rest}
   >
     <path fill="none" d="M0 0h24v24H0z" />
@@ -121,14 +128,14 @@ export const LinkArrow = ({ className, ...rest }: IconProps) => (
 
 export const SunIcon = ({ className, handleClick }: ThemeIconProps) => (
   <FiSun
-    className={`w-[1.5rem] h-[1.5rem] ${className}`}
+    className={`h-[1.5rem] w-[1.5rem] ${className}`}
     onClick={handleClick}
   />
 );
 
 export const MoonIcon = ({ className, handleClick }: ThemeIconProps) => (
   <FiMoon
-    className={`w-[1.5rem] h-[1.5rem] ${className}`}
+    className={`h-[1.5rem] w-[1.5rem] ${className}`}
     onClick={handleClick}
   />
 );
